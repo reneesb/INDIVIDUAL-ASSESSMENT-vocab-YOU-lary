@@ -14,11 +14,12 @@ const navBar = () => {
           <a class="nav-link active" aria-current="page" href="#">Create New Link</a>
         </li>
       </ul>
+      <div id="login-form-container"></div>
     </div>
   </div>
 </nav>`;
 
-  renderToDOM('navigation', domString);
+  renderToDOM('#navigation', domString);
 };
 
 export default navBar;
