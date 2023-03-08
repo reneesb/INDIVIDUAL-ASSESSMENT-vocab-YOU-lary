@@ -4,8 +4,8 @@ import client from '../utils/client';
 const endpoint = client.databaseURL;
 
 // TODO: GET CARDS
-const getCards = (user) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocabulary.json?orderBy="uid"&equalTo="${user.uid}"`, {
+const getCards = (uid) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabulary.json?orderBy="uid"&equalTo="${uid}"`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -17,7 +17,7 @@ const getCards = (user) => new Promise((resolve, reject) => {
 });
 // TODO: DELETE CARD
 const deleteCard = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/books/${firebaseKey}.json`, {
+  fetch(`${endpoint}/vocabulary/${firebaseKey}.json`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const deleteCard = (firebaseKey) => new Promise((resolve, reject) => {
 });
 // TODO: GET SINGLE CARD
 const getSingleCard = (firebaseKey) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/books/${firebaseKey}.json`, {
+  fetch(`${endpoint}/vocabulary/${firebaseKey}.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const getSingleCard = (firebaseKey) => new Promise((resolve, reject) => {
 });
 // TODO: CREATE CARD
 const createCard = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/books.json`, {
+  fetch(`${endpoint}/vocabulary.json`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const createCard = (payload) => new Promise((resolve, reject) => {
 
 // TODO: UPDATE CARD
 const updateCard = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/books/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/vocabulary/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
