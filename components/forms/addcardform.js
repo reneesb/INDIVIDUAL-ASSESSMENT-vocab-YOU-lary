@@ -18,9 +18,10 @@ const addCardForm = () => {
 <div class="mb-3">
 <label for="exampleFormControlTextarea1" class="form-label">Enter Definition</label>
 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+<button type="button" class="btn btn-primary">Submit</button>
 </div>`;
 
-  renderToDOM('form-container', domString);
+  renderToDOM('#form-container', domString);
 };
 
 export default addCardForm;

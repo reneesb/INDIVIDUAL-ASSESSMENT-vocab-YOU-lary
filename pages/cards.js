@@ -9,6 +9,12 @@ const emptyCards = () => {
 const showCards = (array) => {
   clearDom();
 
+  // const btngroup = `<div class="btn-group" role="group" aria-label="Basic example">
+  // <button type="button" class="btn id="css" btn-primary">CSS</button>
+  // <button type="button" class="btn id="html" btn-primary">HTML</button>
+  // <button type="button" class="btn id="js" btn-primary">JavaScript</button>
+  // </div>`;
+
   let domString = '';
   array.forEach((item) => {
     domString += `
