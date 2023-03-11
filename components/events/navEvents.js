@@ -1,6 +1,6 @@
 import { getCards } from '../../api/cardsData';
 import { showCards } from '../../pages/cards';
-import addCardForm from '../forms/addcardform';
+import addCardForm from '../forms/addCardForm';
 
 const navEvent = (user) => {
   document.querySelector('#create-card').addEventListener('click', () => {
