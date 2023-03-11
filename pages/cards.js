@@ -17,8 +17,9 @@ const showCards = (array) => {
       <h5 class="card-title">${item.title}</h5>
       <h6 class="card-subtitle mb-2 text-muted">${item.category}</h6>
       <p class="card-text">${item.definition}</p>
-      <button type="button" class="btn btn-primary" id="edit-btn">Edit</button>
-      <button type="button" class="btn btn-danger" id="delete-btn">Delete</button>
+      <hr>
+      <button type="button" class="btn btn-primary" id="edit-btn--${item.firebaseKey}">Edit</button>
+      <button type="button" class="btn btn-danger" id="delete-btn--${item.firebaseKey}">Delete</button>
     </div>
   </div>`;
   });

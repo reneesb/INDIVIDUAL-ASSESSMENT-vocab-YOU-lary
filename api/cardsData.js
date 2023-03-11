@@ -27,7 +27,7 @@ const deleteCard = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve(data))
     .catch(reject);
 });
-// TODO: GET SINGLE CARD
+//  FILTER CARD
 const getSingleCard = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabulary/${firebaseKey}.json`, {
     method: 'GET',

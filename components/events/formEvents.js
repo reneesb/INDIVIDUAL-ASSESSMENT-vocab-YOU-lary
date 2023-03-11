@@ -9,7 +9,7 @@ const formEvents = (user) => {
       const payLoad = {
         title: document.querySelector('#title').value,
         category: document.querySelector('#category').value,
-        define: document.querySelector('#definition').value,
+        definition: document.querySelector('#definition').value,
         uid: user.uid,
         timeStamp: new Date().toLocaleString(),
       };
@@ -18,6 +18,18 @@ const formEvents = (user) => {
         updateCard(patchPayload).then(() => {
           getCards(user.uid).then(showCards);
         });
+      });
+    }
+    if (e.target.id.includes('edit-card')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payLoad = {
+        title: document.querySelector('#title').value,
+        category: document.querySelector('#category').value,
+        definition: document.querySelector('#definition').value,
+        firebaseKey,
+      };
+      updateCard(payLoad).then(() => {
+        getCards(user.uid).then(showCards);
       });
     }
   });
