@@ -9,12 +9,6 @@ const emptyCards = () => {
 const showCards = (array) => {
   clearDom();
 
-  // const btngroup = `<div class="btn-group" role="group" aria-label="Basic example">
-  // <button type="button" class="btn id="css" btn-primary">CSS</button>
-  // <button type="button" class="btn id="html" btn-primary">HTML</button>
-  // <button type="button" class="btn id="js" btn-primary">JavaScript</button>
-  // </div>`;
-
   let domString = '';
   array.forEach((item) => {
     domString += `
@@ -23,8 +17,8 @@ const showCards = (array) => {
       <h5 class="card-title">${item.title}</h5>
       <h6 class="card-subtitle mb-2 text-muted">${item.category}</h6>
       <p class="card-text">${item.definition}</p>
-      <button type="button" class="btn btn-primary">Edit</button>
-      <button type="button" class="btn btn-danger">Delete</button>
+      <button type="button" class="btn btn-primary" id="edit-btn">Edit</button>
+      <button type="button" class="btn btn-danger" id="delete-btn">Delete</button>
     </div>
   </div>`;
   });

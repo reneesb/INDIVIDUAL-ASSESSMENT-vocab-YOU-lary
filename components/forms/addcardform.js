@@ -1,25 +1,29 @@
 import clearDom from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 
-const addCardForm = () => {
+const addCardForm = (user, obj = {}) => {
   clearDom();
   const domString = `
-  <div class="mb-3">
-  <label for="formGroupExampleInput" class="form-label"></label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Title">
-</div>
-<label for="exampleDataList" class="form-label"></label>
-<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Category">
-<datalist id="datalistOptions">
-<option value="HTML">
-<option value="CSS">
-<option value="JavaScript">
-</datalist>
-<div class="mb-3">
-<label for="exampleFormControlTextarea1" class="form-label">Enter Definition</label>
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-<button type="button" class="btn btn-primary">Submit</button>
-</div>`;
+    <form id="${obj.firebaseKey ? `edit-card--${obj.firebaseKey}` : 'submit-card'}" class="mb-4">
+      <div class="form-group">
+        <label for="term">Tek Term</label>
+        <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Enter Term" value="${obj.term || ''}" required>
+      </div>
+      <div class="form-group">
+        <label for="define">Define</label>
+        <textarea class="form-control" placeholder="Definition" id="definition" style="height: 100px">${obj.definition || ''}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" class="form-control" id="category" placeholder="Enter Category" value="${obj.category || ''}" required>
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="fu" ${obj.sale ? 'checked' : ''}>
+        <label class="form-check-label" for="sale">Follow Up?</label>
+      </div>
+      <button type="submit" class="btn btn-primary" id="submit-card">Submit Card
+      </button>
+    </form>`;
 
   renderToDOM('#form-container', domString);
 };
